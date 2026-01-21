@@ -1,0 +1,28 @@
+# Secrets and sensitive files
+*.key
+*.pem
+.env
+.env.*
+*secret*
+*credential*
+
+# API keys and tokens
+api_keys.txt
+tokens.txt
+
+# n8n exports with secrets
+*_with_credentials.json
+
+# Backup files
+*.bak
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

@@ -1,0 +1,987 @@
+{
+  "name": "AI Journal Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"contents\": [{\"parts\": [{\"text\": \"You are my AI Industry Intelligence Analyst + Small Business AI Implementation Strategist.\\n\\nGoal: Generate a daily AI market journal page that helps me stay current in the AI industry AND identify monetizable implementation opportunities for entrepreneurs.\\n\\nIMPORTANT: Use Google Search to find the latest AI news, announcements, and trends from TODAY and this week. Search for:\\n\\u2022 Latest AI tool launches and updates\\n\\u2022 AI startup funding and acquisitions\\n\\u2022 Big tech AI announcements (OpenAI, Google, Meta, Microsoft, Anthropic)\\n\\u2022 AI regulation news\\n\\u2022 AI business trends and adoption data\\n\\nContext: I do not have a tech degree, but I want to build expert-level awareness through repetition and practical application.\\n\\nMy focus lens - Filter the entire AI industry through:\\n\\u2022 entrepreneurs & small businesses\\n\\u2022 service providers (coaches, photographers, cleaners, consultants, realtors, etc.)\\n\\u2022 creators (YouTube/TikTok)\\n\\u2022 online sellers (Etsy/Shopify)\\n\\u2022 busy parents who run businesses (optional sub-lens)\\n\\nOutput rules:\\n\\u2022 Bullet-heavy, no essays\\n\\u2022 Prioritize signal over noise\\n\\u2022 Define any technical term in one line\\n\\u2022 Always include \\\"how this makes money / saves money\\\"\\n\\u2022 Always include 1 action I can take today\\n\\u2022 Format everything in clean markdown with headers using ##\\n\\u2022 Cite sources when referencing specific news\\n\\u2022 DO NOT include conversational intros like \\\"Okay, here is...\\\" or \\\"Based on...\\\" - START DIRECTLY WITH THE TITLE\\n\\u2022 Use emojis consistently for section headers\\n\\u2022 Use tables where appropriate for structured data\\n\\u2022 Add horizontal rules (---) between major sections\\n\\u2022 Use > blockquotes for key insights\\n\\u2022 Keep formatting clean and GitHub-friendly\\n\\u2022 CRITICAL: Use **bold** for all subsection labels (like \\\"What happened:\\\", \\\"Source:\\\", \\\"Entrepreneur opportunity:\\\")\\n\\nToday's date is: {{ $now.format('MMMM d, yyyy') }}\\n\\nDELIVERABLE FORMAT:\\n\\n# \\ud83d\\ude80 AI Entrepreneur Journal\\n**Date:** {{ $now.format('MMMM d, yyyy') }}\\n**Focus:** Daily AI signals, implementation opportunities, and money-making patterns\\n\\n---\\n\\n## \\ud83d\\udcca Top 5 AI Industry Signals Today\\n\\n| # | Signal | Category | Why It Matters |\\n|---|--------|----------|----------------|\\n| 1 | [Brief description] | `\\ud83c\\udfe2 Startups` | [Business impact] |\\n| 2 | [Brief description] | `\\ud83d\\udd27 Tools` | [Business impact] |\\n| 3 | [Brief description] | `\\ud83e\\udd16 Models` | [Business impact] |\\n| 4 | [Brief description] | `\\ud83d\\udcbc Big Tech` | [Business impact] |\\n| 5 | [Brief description] | `\\ud83d\\udcc8 Market` | [Business impact] |\\n\\n### Signal Details\\n\\n#### 1\\ufe0f\\u20e3 [Signal Title]\\n- **What happened:** [Description]\\n- **Source:** [Citation]\\n- **Entrepreneur opportunity:** [Action]\\n- **What becomes easier:** [Benefit]\\n\\n[Repeat for each signal]\\n\\n---\\n\\n## \\ud83c\\udfaf Use-Case Heatmap: Where AI Works Right Now\\n\\n| Use Case | What AI Automates | Best Tool Type | Risk/Failure Mode |\\n|----------|------------------|----------------|-------------------|\\n| \\ud83d\\udcb0 Lead Gen | [Description] | [Tool category] | [Risk] |\\n| \\ud83d\\udcdd Content Repurposing | [Description] | [Tool category] | [Risk] |\\n| \\ud83d\\udcac Customer Support | [Description] | [Tool category] | [Risk] |\\n| \\ud83d\\udcde Sales Follow-up | [Description] | [Tool category] | [Risk] |\\n| \\ud83d\\udccb Operations/Admin | [Description] | [Tool category] | [Risk] |\\n| \\ud83c\\udfa8 Product Creation | [Description] | [Tool category] | [Risk] |\\n\\n---\\n\\n## \\ud83d\\udcb0 Money Patterns: What's Selling This Week\\n\\n1. **[Offer Type]** - `Price: $X-Y`\\n   - **Who buys:** [Target audience]\\n   - **Why it sells:** [Reason]\\n   - **My competitive angle:** [Differentiation]\\n\\n[Repeat for 5 patterns]\\n\\n---\\n\\n## \\ud83c\\udfaf Implementation Opportunity Radar\\n\\n### Opportunity #1: [Title]\\n> **Target:** [Business type]\\n> **Pain Point:** [Specific problem]\\n\\n- **AI Solution:** [Workflow description]\\n- **Deliverables:** [What you provide]\\n- **Time to deliver:** [Estimate]\\n- **Pricing:** [Range]\\n- **ROI Proof:** [Quick win metric]\\n\\n[Repeat for 3 opportunities]\\n\\n---\\n\\n## \\ud83d\\udee0\\ufe0f Tool Stack Spotlight\\n\\n### Stack: \\\"[Name]\\\"\\n\\n**Tools included:**\\n- **[Category 1]:** [Tool or type]\\n- **[Category 2]:** [Tool or type]\\n- **[Category 3]:** [Tool or type]\\n\\n**Workflow:**\\n1. [Step 1]\\n2. [Step 2]\\n3. [Step 3]\\n4. [Step 4]\\n5. [Step 5]\\n\\n**Replaces:** [Old solution]\\n**Setup time:** [Duration]\\n\\n---\\n\\n## \\ud83d\\udcda Term of the Day: Industry Fluency\\n\\n**Term:** `[Technical term]`\\n\\n- **Plain English:** [Simple explanation]\\n- **Why it matters:** [Relevance]\\n- **Business example:** [Use case]\\n- **Sound fluent:** \\\"[One sentence to use in conversation]\\\"\\n\\n---\\n\\n## \\ud83d\\udcc8 Daily Metrics\\n\\n- \\u2705 **Signals learned:** `__`\\n- \\ud83d\\udd16 **New tools saved:** `__`\\n- \\u26a1 **Workflows captured:** `__`\\n- \\ud83d\\udca1 **Business ideas:** `__`\\n- \\ud83e\\uddea **Tests completed:** `__`\\n\\n---\\n\\n## \\u26a1 15-Minute Competitive Move\\n\\n**TODAY'S ACTION:** [ONE specific action]\\n\\n- **Type:** `test` | `write` | `package` | `publish` | `outreach`\\n- **How to do it:** [Brief steps]\\n- **Why it builds dominance:** [Strategic value]\\n\\n---\\n\\n*Generated with AI + Google Search on {{ $now.format('MMMM d, yyyy') }}*\\n\\nSearch Google for the latest AI news and generate today's AI Entrepreneur Journal Page following this EXACT format structure with real, current information.\"}]}], \"tools\": [{\"googleSearch\": {}}], \"generationConfig\": {\"temperature\": 0.7, \"maxOutputTokens\": 8192}}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "generate-journal",
+      "name": "Generate Journal",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        464,
+        608
+      ],
+      "credentials": {
+        "googlePalmApi": {
+          "id": "iJL1hoGL8STpj0kf",
+          "name": "Gemini API"
+        },
+        "geminiApi": {
+          "id": "iJL1hoGL8STpj0kf",
+          "name": "Google Gemini API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c2",
+              "leftValue": "={{ $json.candidates[0].content.parts.map(p => p.text || '').join('').length }}",
+              "rightValue": "1000",
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-journal",
+      "name": "Check Journal Generated",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        688,
+        608
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e1",
+              "name": "errorStep",
+              "value": "Journal Generation",
+              "type": "string"
+            },
+            {
+              "id": "e2",
+              "name": "errorMessage",
+              "value": "={{ $json.error?.message || \"Gemini returned empty or invalid response\" }}",
+              "type": "string"
+            },
+            {
+              "id": "e3",
+              "name": "errorCode",
+              "value": "={{ $json.error?.code || $json.candidates[0]?.finishReason || \"UNKNOWN\" }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "handle-journal-error",
+      "name": "Handle Journal Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        912,
+        784
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "gen",
+              "name": "generatedContent",
+              "value": "={{ $json.candidates[0].content.parts.map(part => part.text).join('') }}",
+              "type": "string"
+            },
+            {
+              "id": "ground",
+              "name": "hasGrounding",
+              "value": "={{ !!$json.candidates[0].groundingMetadata }}",
+              "type": "boolean"
+            },
+            {
+              "id": "file",
+              "name": "fileName",
+              "value": "={{ $now.format('yyyy-MM-dd') }}.md",
+              "type": "string"
+            },
+            {
+              "id": "path",
+              "name": "filePath",
+              "value": "=/home/cbolden15/ai-tech-collective/journals/{{ $now.format('yyyy-MM-dd') }}.md",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "extract-content",
+      "name": "Extract Content",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        912,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.content }}",
+              "rightValue": "",
+              "operator": {
+                "type": "any",
+                "operation": "exists"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-git-push",
+      "name": "Check GitHub Commit",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1568,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ge1",
+              "name": "errorStep",
+              "value": "Git Push to GitHub",
+              "type": "string"
+            },
+            {
+              "id": "ge2",
+              "name": "errorMessage",
+              "value": "={{ $json.stderr || \"Failed to push to GitHub\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ge3",
+              "name": "errorCode",
+              "value": "={{ $json.exitCode || \"UNKNOWN\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ge4",
+              "name": "partialSuccess",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "ge5",
+              "name": "journalContent",
+              "value": "={{ $('Extract Content').item.json.generatedContent }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "handle-git-error",
+      "name": "Handle Git Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1792,
+        608
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "url",
+              "name": "githubUrl",
+              "value": "={{ $json.content.html_url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "store-github-url",
+      "name": "Store GitHub URL",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1792,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [{\n    \"parts\": [{\n      \"text\": \"Summarize this AI journal into a Discord-friendly mobile format. Use this exact structure:\\n\\n\ud83d\udcca AI Tech Collective - Daily Journal\\n\ud83d\udcc5 {{ $now.format('MMMM d, yyyy') }}\\n\\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\\n\\n\ud83d\udd25 TOP SIGNAL\\n[One sentence: what happened]\\n\\nWhy it matters:\\n\u2192 [Benefit 1]\\n\u2192 [Benefit 2]\\n\\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\\n\\n\ud83d\udcb0 TODAY'S MONEY MOVE\\nOffer: [Offer name]\\nTarget: [Who buys]\\nPrice: [Price range]\\nROI Proof: [How to prove value]\\n\\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\\n\\n\ud83d\udcda TERM OF THE DAY\\n[Term] \u2014 [One-line definition]\\n\\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\\n\\n\u26a1 15-MIN ACTION\\n[One actionable task from the journal]\\n\\nRules:\\n- No markdown formatting (no ** or __)\\n- Keep each line under 50 characters when possible\\n- Use arrows (\u2192) and emojis for visual breaks\\n- No paragraphs \u2014 only short lines\\n- Plain text only\\n- Do NOT include any link placeholder\\n\\nContent to summarize:\\n\\n{{ $json.generatedContent }}\"\n    }]\n  }],\n  \"generationConfig\": {\n    \"temperature\": 0.5,\n    \"maxOutputTokens\": 500\n  }\n}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "generate-summary",
+      "name": "Generate Summary",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        240
+      ],
+      "credentials": {
+        "googlePalmApi": {
+          "id": "iJL1hoGL8STpj0kf",
+          "name": "Gemini API"
+        },
+        "geminiApi": {
+          "id": "iJL1hoGL8STpj0kf",
+          "name": "Google Gemini API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "su1",
+              "leftValue": "={{ $json.candidates[0].content.parts[0].text }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "su2",
+              "leftValue": "={{ $json.candidates[0].content.parts[0].text.length }}",
+              "rightValue": 100,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-summary",
+      "name": "Check Summary Generated",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2224,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fb1",
+              "name": "discordSummary",
+              "value": "=\ud83d\udcca AI Tech Collective - Daily Journal\\n\ud83d\udcc5 {{ $now.format('MMMM d, yyyy') }}\\n\\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\\n\\n\u2705 Today's journal is ready!\\n\\nSummary generation failed, but your full journal was created successfully.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fallback-summary",
+      "name": "Use Fallback Summary",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2448,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ex1",
+              "name": "discordSummary",
+              "value": "={{ $json.candidates[0].content.parts[0].text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "extract-summary",
+      "name": "Extract Summary",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2448,
+        64
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "YOUR_DISCORD_WEBHOOK_URL",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"content\": \"{{ $json.discordSummary }}\\n\\n\ud83d\udcd6 **Read full journal:**\\n{{ $('Store GitHub URL').item.json.githubUrl }}\"\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "post-discord",
+      "name": "Post to Discord",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2672,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "d1",
+              "leftValue": "={{ $json.statusCode }}",
+              "rightValue": "204",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "d2",
+              "leftValue": "={{ $json.statusCode }}",
+              "rightValue": "200",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "d3",
+              "leftValue": "={{ $json.statusCode }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "check-discord",
+      "name": "Check Discord Posted",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "de1",
+              "name": "errorStep",
+              "value": "Discord Post",
+              "type": "string"
+            },
+            {
+              "id": "de2",
+              "name": "errorMessage",
+              "value": "Failed to post to Discord",
+              "type": "string"
+            },
+            {
+              "id": "de3",
+              "name": "errorCode",
+              "value": "={{ $json.statusCode || \"UNKNOWN\" }}",
+              "type": "string"
+            },
+            {
+              "id": "de4",
+              "name": "partialSuccess",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "de5",
+              "name": "githubUrl",
+              "value": "={{ $('Store GitHub URL').item.json.githubUrl }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "handle-discord-error",
+      "name": "Handle Discord Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "suc1",
+              "name": "status",
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "id": "suc2",
+              "name": "completedAt",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "suc3",
+              "name": "githubUrl",
+              "value": "={{ $('Store GitHub URL').item.json.githubUrl }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "success-end",
+      "name": "Success",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3104,
+        64
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "YOUR_DISCORD_WEBHOOK_URL",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"content\": \"\u26a0\ufe0f **AI Tech Collective Workflow Error**\\n\ud83d\udcc5 {{ $now.format('MMMM d, yyyy') }}\\n\\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\\n\\n\u274c **Failed Step:** {{ $json.errorStep }}\\n\\n**Error:** {{ $json.errorMessage }}\\n\\n**Code:** {{ $json.errorCode }}\\n\\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\\n\\n{{ $json.partialSuccess ? '\u2705 Partial success: Some steps completed\\\\n\ud83d\udcd6 GitHub URL: ' + $json.githubUrl : '\ud83d\udd04 Retry the workflow or check logs' }}\"\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "send-error-notification",
+      "name": "Send Error Notification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1792,
+        1024
+      ]
+    },
+    {
+      "parameters": {
+        "errorMessage": "=Workflow failed at {{ $json.errorStep }}: {{ $json.errorMessage }}"
+      },
+      "id": "error-end",
+      "name": "Error End",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        1024
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        192,
+        736
+      ],
+      "id": "7cc315b5-5ff6-42b8-94d0-8a42bc4c84bc",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ai-journal",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        128,
+        464
+      ],
+      "webhookId": "ai-journal-webhook"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://api.github.com/repos/cbolden15/ai-tech-collective/contents/journals/{{ $json.fileName }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "githubApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "X-GitHub-Api-Version",
+              "value": "2022-11-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "message",
+              "value": "={{ $json.commitMessage }}"
+            },
+            {
+              "name": "content",
+              "value": "={{ $json.contentBase64 }}"
+            },
+            {
+              "name": "branch",
+              "value": "main"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "create-github-file",
+      "name": "Create GitHub File",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        304
+      ],
+      "credentials": {
+        "githubApi": {
+          "id": "sQfyFEDnqzcMAEPf",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "id": "encode-to-base64",
+      "name": "Encode to Base64",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const content = $input.item.json.generatedContent;\nconst fileName = $input.item.json.fileName;\n\n// Use Buffer to properly encode Unicode content to base64\nconst contentBase64 = Buffer.from(content, 'utf-8').toString('base64');\n\nreturn {\n  contentBase64: contentBase64,\n  commitMessage: `Add journal entry for ${fileName}`,\n  fileName: fileName\n};"
+      }
+    }
+  ],
+  "connections": {
+    "Generate Journal": {
+      "main": [
+        [
+          {
+            "node": "Check Journal Generated",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Journal Generated": {
+      "main": [
+        [
+          {
+            "node": "Extract Content",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Handle Journal Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Handle Journal Error": {
+      "main": [
+        [
+          {
+            "node": "Send Error Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Content": {
+      "main": [
+        [
+          {
+            "node": "Encode to Base64",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Git Push Success": {
+      "main": [
+        [
+          {
+            "node": "Store GitHub URL",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Handle Git Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Handle Git Error": {
+      "main": [
+        [
+          {
+            "node": "Send Error Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store GitHub URL": {
+      "main": [
+        [
+          {
+            "node": "Generate Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Summary": {
+      "main": [
+        [
+          {
+            "node": "Check Summary Generated",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Summary Generated": {
+      "main": [
+        [
+          {
+            "node": "Extract Summary",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Use Fallback Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Use Fallback Summary": {
+      "main": [
+        [
+          {
+            "node": "Post to Discord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Summary": {
+      "main": [
+        [
+          {
+            "node": "Post to Discord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Discord": {
+      "main": [
+        [
+          {
+            "node": "Check Discord Posted",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Discord Posted": {
+      "main": [
+        [
+          {
+            "node": "Success",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Handle Discord Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Handle Discord Error": {
+      "main": [
+        [
+          {
+            "node": "Send Error Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Error Notification": {
+      "main": [
+        [
+          {
+            "node": "Error End",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Generate Journal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Generate Journal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write Markdown File": {
+      "main": [
+        [
+          {
+            "node": "Git Add Commit Push",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Git Add Commit Push": {
+      "main": [
+        [
+          {
+            "node": "Check Git Push Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create GitHub File": {
+      "main": [
+        [
+          {
+            "node": "Check GitHub Commit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare GitHub Data": {
+      "main": [
+        [
+          {
+            "node": "Create GitHub File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Encode to Base64": {
+      "main": [
+        [
+          {
+            "node": "Create GitHub File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": true,
+    "executionTimeout": 300,
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all",
+    "timeSavedMode": "fixed"
+  }
+}

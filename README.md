@@ -34,9 +34,11 @@ Daily journals are stored in the [`journals/`](./journals/) directory, organized
 ## 🤖 Automation
 
 These journals are automatically generated daily using:
-- **Google Gemini 2.0 Flash** with Google Search for latest AI news
-- **n8n workflow** for automation
+- **Google Gemini 2.5 Flash** with Google Search for latest AI news
+- **n8n workflow** for automation (included in this repo!)
 - **Real-time sources** cited in each journal
+
+**Cost:** ~$0.04 per day ($13/year) - Far cheaper than paid newsletters!
 
 ## 🚀 For the Community
 
@@ -62,6 +64,115 @@ Join the conversation:
 
 ---
 
+## 🛠️ Run This Yourself
+
+Want to create your own automated AI journal? The complete n8n workflow is included in this repository!
+
+### Quick Start
+
+**Prerequisites:**
+- n8n instance (self-hosted or cloud)
+- Google Gemini API key (free tier available)
+- GitHub Personal Access Token (with `repo` scope)
+- Discord webhook URL (optional, for notifications)
+
+**Setup (5 minutes):**
+
+1. **Import the workflow**
+   - Open n8n
+   - Click "Import from file"
+   - Select [`workflow.json`](./workflow.json)
+
+2. **Add credentials**
+   - **Gemini API**: Get key from https://aistudio.google.com/app/apikey
+   - **GitHub API**: Generate token from https://github.com/settings/tokens (needs `repo` scope)
+   - **Discord Webhook** (optional): Server Settings → Integrations → Webhooks
+
+3. **Configure nodes**
+   - Update "Create GitHub File" node with your repo name
+   - Update "Post to Discord" node with your webhook URL
+   - Optionally customize the prompt in "Generate Journal"
+
+4. **Activate**
+   - Toggle workflow to "Active"
+   - Test manually or wait for scheduled run (8 AM daily)
+
+**📖 Detailed Setup Guide:** See [SETUP.md](./docs/SETUP.md)
+
+### Cost Breakdown
+
+| Period | Cost |
+|--------|------|
+| Per run | $0.036 |
+| Daily | $0.04 |
+| Monthly | $1.08 |
+| Yearly | $13.09 |
+
+**Breakdown:**
+- Gemini input tokens: $0.0001
+- Gemini output tokens: $0.0008
+- Google Search grounding: $0.035 (bulk of cost)
+
+**Optimization tips:**
+- Run weekdays only: Save $4/year
+- Reduce output length: Minimal savings
+- Remove Google Search: Save $12/year (but loses real-time news)
+
+### Customization
+
+**Change schedule:** Edit "Schedule Trigger" node
+- Default: `0 8 * * *` (8 AM daily)
+- Weekdays only: `0 8 * * 1-5`
+- Twice daily: `0 8,20 * * *`
+
+**Change focus:** Edit prompt in "Generate Journal" node
+- Target different industries
+- Adjust for different audiences
+- Modify output format
+
+**Add outputs:** Connect new nodes after journal generation
+- Tweet threads
+- LinkedIn posts
+- Email newsletters
+- Slack notifications
+
+### Architecture
+
+```
+Schedule Trigger (8 AM)
+  ↓
+Generate Journal (Gemini 2.5 + Google Search)
+  ↓
+Extract & Validate Content
+  ↓
+Encode to Base64
+  ↓
+Commit to GitHub
+  ↓
+Generate Summary
+  ↓
+Post to Discord
+```
+
+### Troubleshooting
+
+**Empty file on GitHub?**
+- Check "Encode to Base64" node uses `Buffer.from(content, 'utf-8')`
+
+**Workflow fails at condition?**
+- Verify condition checks `content.length > 1000`
+
+**GitHub 422 error?**
+- File already exists for today - this is normal
+
+**High costs?**
+- Reduce `maxOutputTokens` in Gemini nodes
+- Disable Google Search (loses real-time news)
+- Run less frequently
+
+---
+
 **Last Updated**: January 2026
 **Maintained By**: AI/Tech Collective
-**Automation**: n8n + Google Gemini 2.0 Flash
+**Automation**: n8n + Google Gemini 2.5 Flash
+**License**: MIT - Free to use, modify, and distribute
