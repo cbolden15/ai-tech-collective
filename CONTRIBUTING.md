@@ -216,7 +216,7 @@ Active, consistent contributors may be invited to become maintainers.
 ## Questions?
 
 - **General questions**: [Open a discussion](https://github.com/cbolden15/ai-tech-collective/discussions)
-- **Setup help**: See [SETUP.md](docs/SETUP.md)
+- **Setup help**: See [AI Journal Setup](projects/ai-journal-automation/SETUP.md)
 - **Bugs**: [Open an issue](https://github.com/cbolden15/ai-tech-collective/issues)
 
 ## License
